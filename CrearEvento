@@ -1,0 +1,59 @@
+import javax.swing.*;
+import javax.swing.event.AncestorListener;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.nio.channels.SelectionKey;
+
+public class CrearEvento extends JFrame {
+    private static final int ANCHO = 500, ALTO = 500;
+    private JButton Boton_CrearEvento;
+    private JList modalidad_evento;
+    public CrearEvento() {
+        super("Crear Evento");
+        setSize(ANCHO, ALTO);
+        setLocation(ANCHO / 2, ALTO / 2);
+        String [] opc={"Virtual","Presencial","Hibrido"};
+        //setLayout(new FlowLayout());
+
+        JPanel panel1 = new JPanel(new FlowLayout());      //agregamos la parte 1 para editarla
+        panel1.add(new JLabel("Nombre del evento: "));//agregamos el label(texto) de crear evento
+        panel1.add(new JTextField(10));            //agregamos el espacio para escribir con 10 de largo
+
+        JPanel panel2 = new JPanel(new FlowLayout());
+        panel2.add(new JLabel("Tipo: "));//,BorderLayout.CENTER);
+        //panel2.add(new JList(opc));
+        modalidad_evento = new JList<>(opc);
+
+
+        panel2.add(modalidad_evento);
+
+        Boton_CrearEvento = new JButton("Crear Evento");
+        //JTextField nombre = new JTextField(10);
+
+        //panel1.add(Boton_CrearEvento);
+
+        add(panel1,BorderLayout.NORTH);
+        add(panel2,BorderLayout.CENTER);
+
+
+
+        System.out.println("hay conexion :v");
+
+        Boton_CrearEvento.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e){
+                System.out.println("Evento creado correctamente");
+            }
+        });
+        modalidad_evento.addListSelectionListener(new ListSelectionListener() {
+            @Override
+            public void valueChanged(ListSelectionEvent e) {
+                modalidad_evento.getSelectedValue();
+                System.out.println(modalidad_evento.getSelectedValue());
+            }
+        });
+    }
+}
