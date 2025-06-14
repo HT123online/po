@@ -1,0 +1,32 @@
+class Usuario extends Persona{
+    String Nombre_de_usuario;
+    String Codigo_de_usuario;
+    String Contrasena;
+    String Correo_electronico;
+    String Direccion_o_ubicacion;
+
+   public Usuario(String Nombre,String Apellido,String Dni,String Telefono,String Genero,String Nombre_de_usuario,String Codigo_de_usuario,
+    String Contrasena, String Correo_electronico, String Direccion_o_ubicacion){
+       super(Nombre, Apellido, Dni,Telefono, Genero);
+       this.Nombre_de_usuario = Nombre_de_usuario;
+       this.Codigo_de_usuario = Codigo_de_usuario;
+       this.Contrasena = Contrasena;
+       this.Correo_electronico = Correo_electronico;
+       this.Direccion_o_ubicacion = Direccion_o_ubicacion;
+   }
+   public void imprimir(){
+       System.out.println("Nombre: "+Nombre);
+       System.out.println("Apellido: "+Apellido);
+       System.out.println("Dni: "+Dni);
+       System.out.println("Numero: "+Telefono);
+       System.out.println("Genero: "+Genero);
+
+       System.out.println("Nombre_de_usuario: "+Nombre_de_usuario);
+       System.out.println("Codigo_de_usuario: "+Codigo_de_usuario);
+       System.out.println("Contrasena: "+Contrasena);
+       System.out.println("Correo_electronico: "+Correo_electronico);
+       System.out.println("Direccion_o_ubicacion: "+Direccion_o_ubicacion);
+   }
+
+
+}
