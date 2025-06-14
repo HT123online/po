@@ -1,0 +1,104 @@
+import javax.swing.*;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+
+public class Registrar extends JFrame {
+    private static final int ANCHO = 400, ALTO = 500;
+
+
+    public Registrar() {
+        setTitle("Registrar");
+        //pack();
+        setSize(ANCHO, ALTO);
+        setResizable(false);
+        JPanel panel = new JPanel();
+
+        panel.add(new JLabel("Nombre: "));
+        JTextField nombre = new JTextField(10);
+        panel.add(nombre);
+
+        panel.add(new JLabel("Apellido: "));
+        JTextField apellido = new JTextField(10);
+        panel.add(apellido);
+
+        panel.add(new JLabel("Correo: "));
+        JTextField correo = new JTextField(27);
+        panel.add(correo);
+
+        panel.add(new JLabel("Genero: "));
+        String []genero ={"Masculino","Femenino"};
+        JList list = new JList(genero);
+        list.setSelectedIndex(0);
+        panel.add(list);
+
+        panel.add(new JLabel("DNI: "));
+        JTextField dni = new JTextField(20);
+        panel.add(dni);
+
+        panel.add(new JLabel("Telefono: "));
+        JTextField telefono = new JTextField(15);
+        panel.add(telefono);
+
+        add(panel);
+
+        JButton registrar = new JButton("Siguiente");
+        add(registrar,BorderLayout.SOUTH);
+
+        //segunda parte del registro
+
+        JPanel panel2 = new JPanel();
+
+        panel2.add(new JLabel("Nombre de usuario: "));
+        JTextField usuario = new JTextField(15);
+        panel2.add(usuario);
+
+        panel2.add(new JLabel("Nueva contraseña: "));
+        JPasswordField contrasena = new JPasswordField(15);
+        panel2.add(contrasena);
+
+        panel2.add(new JLabel("Repita la contraseña: "));
+        JPasswordField contrasena_repeat = new JPasswordField(15);
+        panel2.add(contrasena_repeat);
+
+        panel2.add(new JLabel("Direccion: (optional): "));
+        JTextField direccion = new JTextField(15);
+        panel2.add(direccion);
+
+        JButton registrar2 = new JButton("Registrar");
+        panel2.add(registrar2,BorderLayout.SOUTH);
+
+        //add(panel2,BorderLayout.CENTER);
+
+        //pack();
+        registrar.addActionListener(e -> {
+            panel.setVisible(false);
+
+            panel2.setVisible(true);
+            add(panel2,BorderLayout.CENTER);
+        });
+
+        registrar2.addActionListener(e -> {
+
+            Usuario nuevo_usuario=new Usuario(
+                    nombre.getText(),apellido.getText(),dni.getText(),telefono.getText(),list.getSelectedValue().toString(),usuario.getText(),"000",
+                    contrasena.getText(),correo.getText(),direccion.getText());
+
+            nuevo_usuario.imprimir();
+                            //String Nombre,String Apellido,String Dni,String Telefono,String Genero,String Nombre_de_usuario,String Codigo_de_usuario,
+                            //        String Contrasena, String Correo_electronico, String Direccion_o_ubicacion
+        });
+        list.addListSelectionListener(new ListSelectionListener() {
+            @Override
+            public void valueChanged(ListSelectionEvent e) {
+
+                System.out.println(list.getSelectedValue());
+
+            }
+        });
+
+    }
+}
