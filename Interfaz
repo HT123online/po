@@ -1,0 +1,45 @@
+import javax.swing.*;
+import javax.swing.border.Border;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+public class Interfaz extends JFrame {
+    private static final int ANCHO = 500, ALTO = 500;
+    private JButton boton;//compar libro
+    private JButton boton2;//crear evento
+    public Interfaz() {
+        super("Menú");
+        setSize(ANCHO, ALTO);
+        //setLayout(new FlowLayout());//,setBackground(setBackground(new Color(38, 57, 80))));
+        
+        JPanel color = new JPanel(new BorderLayout());
+        //color.setBackground(new Color(38, 57, 80));
+        //panel.add(new JButton("Comprar libro"));//,BoxLayout.LINE_AXIS);
+        boton = new JButton("Comprar Libro");
+        boton2=new JButton("Crear evento");
+        color.add(boton, BorderLayout.WEST);
+        color.add(boton2, BorderLayout.EAST);
+        //add(boton, BorderLayout.SOUTH);
+        //panel.add(new JButton("Buscar libro"));
+
+        add(color, BorderLayout.NORTH);
+
+        boton.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                //System.out.println("Comprar libro");
+                CrearEvento evento = new CrearEvento();
+                evento.setVisible(true);
+                //evento.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            }
+        });
+        boton2.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.out.println("Crear evento");
+            }
+        });
+    }
+
+}
