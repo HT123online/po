@@ -1,0 +1,24 @@
+import javax.swing.*;
+import java.awt.*;
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        //Interfaz interfaz;
+        //Interfaz interfaz = new Interfaz();
+        //interfaz.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        //interfaz.setVisible(true);
+        //interfaz.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        Loggin login = new Loggin();
+       login.setVisible(true);
+       login.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        Libro libro=new Libro.construye().setTitulo("El condor y la golondrina").setAutor("Luis Manuel").construye();
+        //System.out.println(libro);
+        libro.imprimir();
+        libro.VenderLibro(2);
+
+
+    }
+}
