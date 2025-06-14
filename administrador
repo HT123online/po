@@ -1,0 +1,14 @@
+public class Administrador extends Persona{
+    String Administrador_supremo;
+
+
+    public Administrador(String Nombre,String Apellido,String Dni,String Genero,String Contrasena, String Administrador_supremo){
+        super(Nombre, Apellido, Dni, Genero, Contrasena);
+        this.Administrador_supremo = Administrador_supremo;
+
+    }
+    public void CrearEvento(String titulo,int horas,int minutos,String mensaje){
+
+    }
+
+}
