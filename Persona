@@ -1,0 +1,21 @@
+public class Persona {
+    String Nombre;
+    String Apellido;
+    String Dni;
+    String Telefono;
+    String Genero;
+
+    //String Contrasena;
+
+    public Persona(String Nombre, String Apellido, String Dni, String Telefono,String Genero){//, String Contrasena) {
+        this.Nombre =Nombre;
+        this.Apellido = Apellido;
+        this.Dni = Dni;
+        this.Telefono = Telefono;
+        this.Genero = Genero;
+        //this.Contrasena = Contrasena;
+    }
+
+    }
+
+
