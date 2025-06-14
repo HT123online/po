@@ -1,0 +1,128 @@
+public class Libro {
+    private final String Titulo;
+    private final String Autor;
+    private final String Genero;
+    private final String Formato;          //(Físico, virtual, Audio)
+    private final double Codigo_del_libro;
+    private final int Precio;             // (dependiendo de su Formato)
+    private final String Idioma;
+    private final String Editorial;
+    private final double fecha_de_publicacion;
+    private final int Stock;
+    private final String Rango;           // de envio(Saber en cuanto tiempo aprox puede llegar)
+
+
+    private Libro(String Titulo, String Autor, String Genero, String Formato,
+    double Codigo_del_libro, int Precio,String Idioma, String Editorial, double fecha_de_publicacion, int Stock,String Rango) {
+        this.Titulo = Titulo;
+        this.Autor= Autor;
+        this.Genero = Genero;
+        this.Formato = Formato;
+        this.Codigo_del_libro = Codigo_del_libro;
+        this.Precio = Precio;
+        this.Idioma = Idioma;
+        this.Editorial = Editorial;
+        this.fecha_de_publicacion = fecha_de_publicacion;
+        this.Stock = Stock;
+        this.Rango = Rango;
+    }
+    static class construye{
+        private String Titulo;
+        private String Autor;
+        private String Genero;
+        private String Formato="virtual";
+        private double Codigo_del_libro=0;
+        private int Precio=20;
+        private String Idioma="Español";
+        private String Editorial="Estandar";
+        private double Fecha_de_publicacion=0;
+        private int Stock=3;
+        private String Rango="Viendo Ubicacion...";
+
+        construye setTitulo(String Titulo){
+            this.Titulo = Titulo;
+            return this;
+        }
+        construye setAutor(String Autor){
+            this.Autor = Autor;
+            return this;
+        }
+        construye setGenero(String Genero){
+            this.Genero = Genero;
+            return this;
+        }
+        construye setFormato(String Formato){
+            this.Formato = Formato;
+            return this;
+        }
+        construye setCodigo_del_libro(double Codigo_del_libro){
+            this.Codigo_del_libro = Codigo_del_libro;
+            return this;
+        }
+        construye setPrecio(int Precio){
+            this.Precio = Precio;
+            return this;
+        }
+        construye setIdioma(String Idioma){
+            this.Idioma = Idioma;
+            return this;
+        }
+        construye setEditorial(String Editorial){
+            this.Editorial = Editorial;
+            return this;
+        }
+        construye setFecha_de_publicacion(double fecha_de_publicacion){
+            this.Fecha_de_publicacion = fecha_de_publicacion;
+            return this;
+        }
+        construye setStock(int Stock){
+            this.Stock = Stock;
+            return this;
+        }
+        construye setRango(String Rango){
+            this.Rango = Rango;
+            return this;
+        }
+        Libro construye(){
+            return new Libro(Titulo,Autor,Genero,Formato,Codigo_del_libro,Precio,Idioma,Editorial,Fecha_de_publicacion,Stock,Rango);
+        }
+
+    }
+
+
+//    public String getTitulo(){return Titulo;}
+//    public String getAutor(){return Autor;}
+//    public String getFormato(){return Formato;}
+
+public void VenderLibro(int cantidad){
+    System.out.println("Registrando el libro: "+Titulo+" del autor"+Autor+ " y cantidad a llevar: "+cantidad);
+    System.out.println("El total le sale a: " + Precio*cantidad+" soles");
+//    return VenderLibro(cantidad);
+}
+public void imprimir(){          //Mostramos con un print todos lo atributos
+    System.out.println("\nTitulo: "+Titulo);
+    System.out.println("Autor: "+Autor);
+    System.out.println("Genero: "+Genero);
+    System.out.println("Formato: "+Formato);
+    System.out.println("Codigo_del_libro: "+Codigo_del_libro);
+    System.out.println("Precio: "+Precio+" yenes");
+    System.out.println("Idioma: "+Idioma);
+    System.out.println("Editorial: "+Editorial);
+    System.out.println("Fecha_de_publicacion: "+fecha_de_publicacion);
+    System.out.println("Stock: "+Stock);
+    System.out.println("Rango: "+Rango);
+}
+}
+/*
+private final String Titulo;
+    private final String Autor;
+    private final String Genero;          //(Físico, virtual, Audio)
+    private final String Formato;
+    private final double Codigo_del_libro;
+    private final int Precio;             // (dependiendo de su Formato)
+    private final String Idioma;
+    private final String Editorial;
+    private final double fecha_de_publicacion;
+    private final int Stock;
+    private final String Rango;
+*/
