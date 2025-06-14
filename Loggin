@@ -1,0 +1,92 @@
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+public class Loggin extends JFrame {
+    private static final int ANCHO = 300, ALTO = 160;
+
+    public Loggin() {
+        super("Loggin");
+        setSize(ANCHO, ALTO);
+        setResizable(false);
+        JPanel panel = new JPanel(new FlowLayout());
+        JPanel subpanel=new JPanel(new FlowLayout());
+        JPanel panel2=new JPanel(new FlowLayout());
+
+        panel.add(new JLabel("Bienvenido al inicio de sesion"));
+
+        subpanel.add(new JLabel("Usuario"),BorderLayout.WEST);
+        JTextField usuario=new JTextField(15);
+        subpanel.add(usuario,BorderLayout.CENTER);
+
+        subpanel.add(new JLabel("Contraseña"),BorderLayout.WEST);
+        JPasswordField contrasena = new JPasswordField(15);
+        subpanel.add(contrasena, BorderLayout.CENTER);
+
+        JButton login=new JButton("Login");
+        panel2.add(login);
+        JButton registrar=new JButton("¿Eres nuevo? Registrate");
+        panel2.add(registrar);
+        add(panel, BorderLayout.NORTH);
+        add(subpanel, BorderLayout.CENTER);
+        add(panel2, BorderLayout.SOUTH);
+
+
+        //add(subpanel);
+//        JPanel panel2 = new JPanel(new FlowLayout());
+//        panel2.add(new JLabel("Username:"));
+//        panel2.add(usuario);
+//
+//
+//        panel2.add(new JLabel("Password:"));
+        //JPasswordField password = new JPasswordField(10);
+        //panel2.add(password);
+//        panel2.add(password);
+//
+//
+//        add(panel, BorderLayout.NORTH);
+//        add(panel2,FlowLayout.CENTER);
+//        //add(panel3,BorderLayout.CENTER);
+//        setVisible(true);
+        registrar.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                //System.out.println(usuario.getText());
+                //System.out.println(contrasena.getText());
+                Registrar registrar=new Registrar();
+                registrar.setVisible(true);
+            }
+        });
+
+        login.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                //System.out.println(usuario.getText());
+                //System.out.println(contrasena.getText());
+                if(usuario.getText().equals("HT") && contrasena.getText().equals("123")) {
+                    //Interfaz interfaz;
+                    login.setEnabled(false);
+                    Interfaz interfaz = new Interfaz();
+                    interfaz.setVisible(true);
+                    interfaz.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                }else {
+                    System.out.println("Error");
+                }
+            }
+        });
+
+        usuario.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e){
+                System.out.println(usuario.getText());
+            }
+        });
+        contrasena.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e){
+                System.out.println(contrasena.getText());
+            }
+        });
+    }
+}
